@@ -14,13 +14,18 @@ function App() {
     setBooks([...books, newBook]);
   }
   
+  const deleteBook = (id) => {
+    const updateBooks = books.filter((item) => item.id !== id);
+    setBooks(updateBooks);
+  }
+
   return (
     <div className="App">
        <header className="App-header">
         <h1>Book List App</h1>
         <p>This is a simple app to manage your book list.</p>
       </header>
-      <BookList books = {books} />
+      <BookList books = {books} deleteBook={deleteBook} />
       <AddBookForm addBook={addBook} />
     </div>
   );
