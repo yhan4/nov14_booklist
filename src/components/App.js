@@ -1,22 +1,43 @@
 import '../styles/App.css';
 import BookList from './BookList';
 import AddBookForm from './AddBookForm'; 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const API_ENDPOINT = 'https://655da38f9f1e1093c5999e81.mockapi.io/api/booklist_app';
 
 function App() {
-  const [books, setBooks] = useState([
-    { id: 1, title: 'Book 1', author: 'Author 1' },
-    { id: 2, title: 'Book 2', author: 'Author 2' },
-    { id: 3, title: 'Book 3', author: 'Author 3' },
-  ])
+  const [books, setBooks] = useState([])
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
+
+  const fetchBooks = async () => {
+    try {
+      const response = await axios.get(`${API_ENDPOINT}/books`);
+      setBooks(response.data);
+    } catch (error) {
+      console.error('Error fetching books:', error);
+    }
+  };
   
-  const addBook = (newBook) => {
-    setBooks([...books, newBook]);
+  const addBook = async (newBook) => {
+    try {
+      await axios.post(`${API_ENDPOINT}/books`, newBook);
+      fetchBooks();
+    } catch (error) {
+      console.error('Error adding book:', error);
+    }
   }
   
-  const deleteBook = (id) => {
-    const updateBooks = books.filter((item) => item.id !== id);
-    setBooks(updateBooks);
+  const deleteBook = async (id) => {
+    try {
+      await axios.delete(`${API_ENDPOINT}/books/${id}`);
+      fetchBooks();
+    } catch (error) {
+      console.error('Error removing book:', error);
+    }
   }
 
   return (
