@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function AddBookForm({ addBook }) {
+function AddBookForm({ addBook, id }) {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
   
@@ -22,7 +22,7 @@ function AddBookForm({ addBook }) {
       }
   
       const newBook = {
-        id: new Date().getTime(), 
+        id: id+1, 
         title: title,
         author: author,
       };
