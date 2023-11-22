@@ -1,0 +1,70 @@
+body, h1, h2, h3, h4, h5, h6, p, a, ul, ol, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+* {
+    box-sizing: border-box;
+    background-color: #34668C;
+    color:#FBF3E7;
+}
+
+.App {
+    width: 1240px;
+    margin: 30px;
+}
+
+.App-header {
+    margin: 30px auto;
+    height: 100px;
+}
+
+.logo {
+    width: 207px;
+    height: 80px;
+}
+
+.booklist {
+    margin: 30px auto;
+}
+
+.booklist li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+    line-height: 40px;
+    color: #CBA716;
+    border-bottom: 1px solid #CBA716;
+}
+
+.booklist li .deleteButton,
+.addBook .addButton {
+    padding: 3px 5px;
+    cursor: pointer;
+}
+
+.booklist li .deleteButton:hover,
+.addBook .addButton:hover {
+    background-color: #F2E2D0;
+    color: #CBA716;
+}
+
+.addBook {
+    border: 1px solid #ccc; 
+    padding: 15px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    width: 600px;
+}
+.addBook .form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 40px;
+    color: #CBA716;
+}
+
+label {
+    margin-bottom: 10px;
+}

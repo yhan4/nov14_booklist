@@ -43,7 +43,7 @@ function App() {
   return (
     <div className="App">
        <header className="App-header">
-        <h1>Book List App</h1>
+        <div className='logo'><h1>Book List App</h1></div>
         <p>This is a simple app to manage your book list.</p>
       </header>
       <BookList books = {books} deleteBook={deleteBook} />

@@ -35,20 +35,20 @@ function AddBookForm({ addBook }) {
     };
   
     return (
-      <div>
-        <h2>Add a New Book</h2>
-        <form onSubmit={handleSubmit}>
+      <div className="addBook">
+        <h2>Add a Book</h2>
+        <form className="form" onSubmit={handleSubmit}>
           <label>
             Title:
             <input type="text" value={title} onChange={handleTitleChange} />
           </label>
-          <br />
+          
           <label>
             Author:
             <input type="text" value={author} onChange={handleAuthorChange} />
           </label>
-          <br />
-          <button type="submit">Add Book</button>
+          
+          <button className="addButton" type="submit">Add Book</button>
         </form>
       </div>
     );
